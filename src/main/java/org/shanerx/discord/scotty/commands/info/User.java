@@ -2,7 +2,6 @@ package org.shanerx.discord.scotty.commands.info;
 
 import java.awt.Color;
 import java.time.OffsetDateTime;
-import java.util.Date;
 import java.util.List;
 
 import org.shanerx.discord.scotty.Command;

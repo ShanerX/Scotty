@@ -1,6 +1,5 @@
 package org.shanerx.discord.scotty.commands.settings;
 
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 
