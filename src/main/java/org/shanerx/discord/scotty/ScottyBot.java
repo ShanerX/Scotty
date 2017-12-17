@@ -6,6 +6,8 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.security.auth.login.LoginException;
 
@@ -36,8 +38,6 @@ import net.dv8tion.jda.core.JDA;
 import net.dv8tion.jda.core.JDABuilder;
 import net.dv8tion.jda.core.OnlineStatus;
 import net.dv8tion.jda.core.exceptions.RateLimitedException;
-import net.dv8tion.jda.core.utils.SimpleLog;
-import net.dv8tion.jda.core.utils.SimpleLog.Level;
 
 public class ScottyBot {
 	
@@ -47,7 +47,7 @@ public class ScottyBot {
 	private String secret;
 	private AccountType accountType;
 	protected JDA jda;
-	protected SimpleLog log = SimpleLog.getLog("ScottyBot");
+	protected Logger log = Logger.getLogger("ScottyBot");
 	
 	private static ScottyBot instance;
 	protected static File conf;
@@ -72,20 +72,20 @@ public class ScottyBot {
 		return accountType;
 	}
 	
-	public SimpleLog getLogger() {
+	public Logger getLogger() {
 		return getInstance().log;
 	}
 	
 	public File getConfig() {
 		if (conf == null) {
-			getLogger().log(Level.FATAL, "Failed to retrieve values from file: Configuration file hasn't been initialized!");
+			getLogger().log(Level.SEVERE, "Failed to retrieve values from file: Configuration file hasn't been initialized!");
 		}
 		return conf;
 	}
 	
 	public JSONObject getBotConfiguration() {
 		if (config == null) {
-			SimpleLog.getLog("ScottyBot").log(Level.FATAL, "Failed to retrieve values from file: Configuration file hasn't been initialized!");
+			getLogger().log(Level.SEVERE, "Failed to retrieve values from file: Configuration file hasn't been initialized!");
 		}
 		return config;
 	}
